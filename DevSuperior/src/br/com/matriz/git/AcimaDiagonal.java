@@ -22,6 +22,8 @@ public class AcimaDiagonal {
 			}
 		}
 		
+		//teste
+		
 		sc.close();
 
 	}
