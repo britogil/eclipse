@@ -83,11 +83,10 @@ public class MatrizGeral {
 		System.out.println("MATRIZ ALTERADA: ");
 		for(int i = 0; i < N; i++) {
 			for(int j = 0; j < N; j++) {
-				//if(matriz[i][j] < 0) {
-					valorNegativo = matriz[i][j];
-					matriz[i][j] = Math.pow(valorNegativo, 2);
+				if(matriz[i][j] < 0) {			
+					matriz[i][j] = Math.pow(matriz[i][j], 2);
 					System.out.println(matriz[i][j] + " ");
-				//}
+				}
 			}
 			System.out.println();
 		}
