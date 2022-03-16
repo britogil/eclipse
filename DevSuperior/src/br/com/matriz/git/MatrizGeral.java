@@ -55,6 +55,7 @@ public class MatrizGeral {
 			}
 		}
 		System.out.println();
+		System.out.println();
 		System.out.print("Escolha uma Coluna: " );
 		coluna = sc.nextInt();
 		
@@ -67,6 +68,7 @@ public class MatrizGeral {
 			}
 		}
 		System.out.println();
+		System.out.println();
 		System.out.print("DIAGONAL PRINCIPAL: ");
 		for(int i = 0; i < N; i++){
 			for(int j = 0; j < N; j++) {
@@ -77,14 +79,17 @@ public class MatrizGeral {
 			}
 		}
 		System.out.println();
+		System.out.println();
 		System.out.println("MATRIZ ALTERADA: ");
 		for(int i = 0; i < N; i++) {
 			for(int j = 0; j < N; j++) {
-				if(matriz[i][j] < 0) {
+				//if(matriz[i][j] < 0) {
 					valorNegativo = matriz[i][j];
-					System.out.println (Math.pow(valorNegativo, 2) + " ");
-				}
+					matriz[i][j] = Math.pow(valorNegativo, 2);
+					System.out.println(matriz[i][j] + " ");
+				//}
 			}
+			System.out.println();
 		}
 		
 		sc.close();
