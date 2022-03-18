@@ -17,7 +17,7 @@ public class Telefone {
 
 		String nome [] = new String[qtdClinente];
 		char telefone [] = new char[qtdClinente];
-		int tipo [] = new int[qtdClinente];
+		int tipoConta [] = new int[qtdClinente];
 		int minut [] = new int[qtdClinente];
 		double valorConta [] = new double[qtdClinente];
 		double precoBasico = 0;
@@ -26,13 +26,13 @@ public class Telefone {
 		for(int i = 0; i < qtdClinente; i++) {
 			countClinte++;
 			System.out.println("Dados do " + countClinte + "º Cliente: ");
-			System.out.println("NOME: ");
+			System.out.print("NOME: ");
 			nome[i] = sc.next();
-			System.out.println("TELEFONE: ");
+			System.out.print("TELEFONE: ");
 			telefone[i] = sc.next(). charAt(0);
-			System.out.println("TIPO: ");
-			tipo[i] = sc.nextInt();
-			System.out.println("MINUTOS: ");
+			System.out.print("TIPO: ");
+			tipoConta[i] = sc.nextInt();
+			System.out.print("MINUTOS: ");
 			minut[i] = sc.nextInt();
 		}
 
@@ -40,26 +40,30 @@ public class Telefone {
 
 		double tipoAssinatura [][] = new double[3][2]; 
 
-		for(int i = 0; i < 3; i++) {
+		for(int i = 0; i < 3; i++) { // tipo de conta (linha) 0, 1, 2
 			System.out.println("TIPO "+ i + " :");
 			for(int j = 0; j < 2; j++) {
+				// coluna 0 preço basico
+				// coluna 1 preço excedido
 				tipoAssinatura[i][j] = sc.nextDouble();
 			}
 		}
-
-		for(int i = 0; i < 3; i++){
-			for(int j = 0; j < 2; j++){
-				if(j == 0) {
-					precoBasico = tipoAssinatura[i][j];
-				}
-				else if(j == 1 ) {
-					precoExcedente = tipoAssinatura[i][j];
-				}
-			}
+		
+		for(int i = 0; i < qtdClinente; i++) {
+		
+		if(minut[i] > 90) {
+			valorConta[i] = (tipoAssinatura[0][0] + minut[i] - 90) * tipoAssinatura[0][1];
+		}
+		else if(minut[i] > 90) {
+			valorConta[i] = (tipoAssinatura[1][0] + minut[i] - 90) * tipoAssinatura[1][1];
+		}
+		else if(minut[i] > 90) {
+			valorConta[i] = (tipoAssinatura[2][0] + minut[i] - 90) * tipoAssinatura[2][1];
 		}
 		
+		System.out.printf("Valor: %.2f ",valorConta[i]);
 
-
+		}
 		sc.close();
 
 	}
